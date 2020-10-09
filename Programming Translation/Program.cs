@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,8 +9,20 @@ namespace Programming_Translation {
     class Program {
         static void Main(string[] args) {
 
-//            W1Q1();       // Paint Q 
-            W1Q2();
+            // Basics
+            // W1Q1();
+            // W1Q2();
+            // W1Q4();
+
+            // Selection
+            // W2Q3();
+            // W2Q4();
+            // W2Q5();
+
+            // Iteration
+            H3Q2P();        //fixthis lmao
+            
+
         }
 
 
@@ -120,6 +133,235 @@ namespace Programming_Translation {
             Console.WriteLine("Miles per gallon: " + mileageRounded);
             
 
+        }
+
+        static void W1Q4() {
+
+            /*
+            #OCR W1 Q4 Number of Books
+            numberOfStudents = int(input("Enter number of students: "))
+            numberOfBooks = int(input("Enter number of books: "))
+            booksPerStudent = numberOfBooks // numberOfStudents
+            leftOver = numberOfBooks % numberOfStudents
+            print("Books per student: ",booksPerStudent)
+            print("Books left over: ", leftOver)
+
+            input("\nPress Enter to exit program ")
+             */
+
+            // Asks how many students there are
+            Console.Write("Enter number of students: ");
+            int numberOfStudents = int.Parse(Console.ReadLine());
+
+            // Asks how many books there are
+            Console.Write("Enter number of books: ");
+            int numberOfBooks = int.Parse(Console.ReadLine());
+
+            // Finds how many books per student there are and how many are left over
+            int booksPerStudent = numberOfBooks / numberOfStudents;
+            int leftOver = numberOfBooks % numberOfStudents;
+
+            // Prints results
+            Console.WriteLine("Books per student: " + booksPerStudent);
+            Console.WriteLine("Books left over: " + leftOver);
+        }
+
+        static void W2Q3() {
+            /*
+             #OCR unit 11 W2 Q3 Online bookstore
+            import math
+            orderVal = float(input("Enter order value: "))
+            postageCharge = 5.0
+            print("Do you want to pay £5.00 for next day delivery? ")
+            postageCode = input("Enter 1 for next day delivery, 2 for 2nd class post: ")
+            if orderVal >=15.0 and postageCode == "2":
+                postageCharge = 0
+            elif orderVal < 15.0 and postageCode == "2":
+                postageCharge = 3.50
+
+            totalCharge = orderVal + postageCharge
+            #You can round to 2 decimal places but this will print 25.40 as 25.4
+            #totalCharge = round(totalCharge,2)
+
+            #To print currency amounts to two decimal places, you can put "markers" %0.2f
+            # into the string to mark the positions where 2 float values are to be inserted
+            #Follow the string with % (postageCharge,totalCharge) to show
+            #where the two float values are to be inserted
+            #see http://learning.londonmet.ac.uk/computing/cc0002n/webpages/chpt3_3.htm
+            print ("Postage charge: £%0.2f      Total charge  £%0.2f" % (postageCharge,totalCharge))
+
+            input("\nPress Enter to exit program ")
+             */
+
+            // Asks for order amount
+            Console.Write("Enter order value: ");
+            double orderVal = double.Parse(Console.ReadLine());
+
+            // Postage charge
+            double postageCharge = 5.0;
+
+            // Asks which delivery user wants
+            Console.WriteLine("Do you want to pay £5.00 for next day delivery?");
+            Console.Write("Enter 1 for next day delivery, 2 for 2nd class post: ");
+            string postageCode = Console.ReadLine();
+
+            // Checks if user needs to be charge for postage option
+            if (orderVal >= 15.0 & postageCode == "2") {
+                postageCharge = 0;
+            } else if (orderVal < 15.0 & postageCode == "2") {
+                postageCharge = 3.50;
+            }
+
+            // Find totals and displays them
+            double totalCharge = orderVal + postageCharge;
+            double totalChargeRounded = (float)Math.Round(totalCharge, 2);
+
+            Console.WriteLine("Postage charge: " + postageCharge);
+            Console.WriteLine("Total charge: " + totalChargeRounded);
+        }
+
+        static void W2Q4() {
+
+            /*
+             #OCR unit 11 W2 Q4 Decision table
+            mark = int(input("Enter exam mark %: "))
+            attendance = int(input ("Enter attendance %: " ))
+            if attendance > 90:
+                if mark > 90:    
+                    print ("Grade A")
+                elif mark >80:    
+                    print ("Grade B")
+                elif mark >70:   
+                    print ("Grade C")
+                else:
+                    print("fail")
+            else:
+                print("fail")
+    
+            input("\nPress Enter to exit program ")
+            */
+
+            // Asks for users mark
+            Console.Write("Enter exam mark %: ");
+            int mark = int.Parse(Console.ReadLine());
+
+            // Asks for users attendance
+            Console.Write("Enter attendance %: ");
+            int attendance = int.Parse(Console.ReadLine());
+
+            // Checks if user meets criteria for grades
+            if (attendance > 90) {
+                if (mark > 90) {
+                    Console.WriteLine("Grade A");
+                } else if (mark > 80) {
+                    Console.WriteLine("Grade B");
+                } else if (mark > 70) {
+                    Console.WriteLine("Grade C");
+                } else {
+                    Console.WriteLine("Fail");
+                }
+            } else {
+                Console.WriteLine("Fail");
+            }
+        }
+
+        static void W2Q5() {
+            /*
+             #OCR unit 11 W2 Q5(a) Home security system
+
+            alarm = "Off"   #initialise alarm
+            #To test the program, the user must enter information
+
+            print("Is the alarm triggered? (Y or N): ", end ="")
+            trigger = input()
+            #allow uppcase or lowercase response
+            trigger = trigger.upper()
+            if trigger == "Y":
+                print("Has movement been detected on ground floor? (Y or N): ",end ="")
+                moveGround = input()
+                moveGround = moveGround.upper()
+                if moveGround == "Y":
+                    alarm = "On"
+                    print("Alarm = ",alarm, " Intruder alert ground floor!")
+        
+                print("Has movement been detected on first floor? (Y or N): ",end ="")
+                moveFirst = input()
+                moveFirst = moveFirst.upper()
+
+                if moveFirst == "Y":
+                    alarm = "On"
+                    print("Alarm = ",alarm, " Intruder alert first floor!")
+
+            input("\nPress Enter to exit program ")
+             */
+
+            // Initialise alarm
+            Console.Write("Is the alarm triggered? (Y or N): ");
+            string trigger = Console.ReadLine();
+
+            // Makes input uppercase
+            trigger = trigger.ToUpper();
+ 
+            // Checks if movement has been detected on the ground floor
+            if (trigger == "Y") {
+                Console.Write("Has movement been detected on ground floor ? (Y or N): ");
+                string moveGround = Console.ReadLine();
+                // Makes input uppercase
+                moveGround = moveGround.ToUpper();
+
+                // If movement is detected, the alarm sounds
+                if (moveGround == "Y") {
+                    string alarm = "On";
+                    Console.WriteLine("Alarm = " + alarm + ". Intruder alert ground floor!");
+
+                }
+
+                // Checks if movement has been detected on the first floor
+                Console.Write("Has movement been detected on the first floor? (Y or N): ");
+                string moveFirst = Console.ReadLine();
+                // Makes input uppercase
+                moveFirst = moveFirst.ToUpper();
+
+                // If movement is detected, the alarm sounds
+                if (moveFirst == "Y") {
+                    string alarm = "On";
+                    Console.WriteLine("Alarm = " + alarm + "Intruder alert first floor!");
+                }
+            }
+        }
+
+        static void H3Q2P() {
+            /*
+             #OCR unit 11 H3 Q2 Password
+            password = input("Please enter password: ")
+            attempts = 1
+            while password != "Tues1212" and attempts < 3:
+                password = input("Password incorrect - please re-enter: ")
+                attempts += 1
+            if password == "Tues1212":
+                print("password accepted")
+            else:
+                print("password rejected")
+            carryOn = input("Press Enter to continue")
+             */
+
+            // Asks for password
+            Console.Write("Please enter password: ");
+            string password = Console.ReadLine();
+
+            int attempts = 1;
+
+            while (password != "Tues1212" & attempts < 3) {
+                Console.WriteLine("Password incorrect - please re-enter: ");
+                
+
+                if (password == "Tues1212") {
+                    Console.WriteLine("Password accepted");
+                } else {
+                    Console.WriteLine("Password rejected");
+                }
+                attempts++;
+            }
         }
     }
 

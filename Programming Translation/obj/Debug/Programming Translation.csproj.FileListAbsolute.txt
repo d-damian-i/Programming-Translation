@@ -1,0 +1,7 @@
+C:\Users\Damian I\Source\Repos\d-damian-i\Programming-Translation\Programming Translation\bin\Debug\Programming Translation.exe.config
+C:\Users\Damian I\Source\Repos\d-damian-i\Programming-Translation\Programming Translation\bin\Debug\Programming Translation.exe
+C:\Users\Damian I\Source\Repos\d-damian-i\Programming-Translation\Programming Translation\bin\Debug\Programming Translation.pdb
+C:\Users\Damian I\Source\Repos\d-damian-i\Programming-Translation\Programming Translation\obj\Debug\Programming Translation.csprojAssemblyReference.cache
+C:\Users\Damian I\Source\Repos\d-damian-i\Programming-Translation\Programming Translation\obj\Debug\Programming Translation.csproj.CoreCompileInputs.cache
+C:\Users\Damian I\Source\Repos\d-damian-i\Programming-Translation\Programming Translation\obj\Debug\Programming Translation.exe
+C:\Users\Damian I\Source\Repos\d-damian-i\Programming-Translation\Programming Translation\obj\Debug\Programming Translation.pdb
