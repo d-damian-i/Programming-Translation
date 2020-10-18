@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Services;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace Programming_Translation {
     class Program {
@@ -20,8 +23,9 @@ namespace Programming_Translation {
             // W2Q5();
 
             // Iteration
-            H3Q2P();        //fixthis lmao
-            
+            // H3Q2P();
+            // H3Q2F();
+            // H3Q3();
 
         }
 
@@ -125,13 +129,13 @@ namespace Programming_Translation {
             double totalMiles = currentCarMileage - previousCarMileage;
             double gallonsToFillTank = litresToFillTank / litresPerGallon;
             double mileage = totalMiles / gallonsToFillTank;
-            
+
             // Round result
             double mileageRounded = Math.Round(mileage, 0);
-            
+
             // Output
             Console.WriteLine("Miles per gallon: " + mileageRounded);
-            
+
 
         }
 
@@ -301,7 +305,7 @@ namespace Programming_Translation {
 
             // Makes input uppercase
             trigger = trigger.ToUpper();
- 
+
             // Checks if movement has been detected on the ground floor
             if (trigger == "Y") {
                 Console.Write("Has movement been detected on ground floor ? (Y or N): ");
@@ -349,21 +353,119 @@ namespace Programming_Translation {
             Console.Write("Please enter password: ");
             string password = Console.ReadLine();
 
+            // Sets attempts to 1
             int attempts = 1;
 
-            while (password != "Tues1212" & attempts < 3) {
-                Console.WriteLine("Password incorrect - please re-enter: ");
-                
-
+            // Checks if password is correct
+            while (password != "Tues1212" && attempts < 3) {
                 if (password == "Tues1212") {
-                    Console.WriteLine("Password accepted");
+                    Console.WriteLine("password accepted");
                 } else {
-                    Console.WriteLine("Password rejected");
+                    Console.WriteLine("password refejcted, " + (3 - attempts) + " attempts remaining");
+                    Console.Write("Password incorrect - please re-enter: ");
+                    password = Console.ReadLine();
+                    attempts++;
+
                 }
-                attempts++;
             }
+        }
+
+        static void H3Q2F() {
+
+            /*
+            #OCR unit 11 W3 Q2 fever
+            temp = 0
+            hour = 0
+            total = 0
+            fever = 0
+            while hour < 7:
+            #while hour < 6:
+                temp = float(input("Enter temperature: "))
+                if temp > 37:
+                    fever += 1
+                total = total + temp
+                hour += 1
+                print("Hour", hour,"Total of temperature readings", total," fever: ",fever)
+            #endwhile
+            average = round(total/hour,1)
+            print ("Average temperature:",average)
+            print("Incidents of fever:", fever)
+
+            input("\nPress Enter to exit program ")
+            */
+
+            // Define variables
+            double temp = 0;
+            int hour = 0;
+            double total = 0;
+            int fever = 0;
+
+            // Keep asking for temperature until 7th hour
+            while (hour < 7) {
+                Console.Write("Enter temperature: ");
+                temp = double.Parse(Console.ReadLine());
+
+                // If temp reading is above 37, fever counter increments
+                if (temp > 37) {
+                    fever += 1;
+                }
+
+                total += temp;
+                hour += 1;
+                Console.WriteLine("Hour " + hour + ", Total temperature of readings: " + total + ", fever: " + fever); 
+            }
+            double average = Math.Round((total / hour), 1);
+
+            // Results
+            Console.WriteLine("Average temperature: " + average);
+            Console.WriteLine("Incidents of fever: " + fever);
+
+
+        }
+
+        static void H3Q3() {
+            /*
+             #OCR unit 11 W3 Q3 part numbers
+
+            oldModel = 0
+            total = 0
+            partnum = input("Enter part number: ")
+            while partnum != "9999":
+                while len(partnum) !=4:
+                    partnum = input("Error: enter 4-digit number: ")
+                if partnum[3] >= "6" and partnum[3]<="8":
+                    oldModel += 1
+                total += 1
+                partnum = input("Enter part number: ")
+            #endwhile
+            print("Number of old models:", oldModel)
+            print("Total number of parts:", total)
+
+            input("\nPress Enter to exit program ")
+             */
+
+            int oldModel = 0;
+            int total = 0;
+
+            Console.Write("Enter part number: ");
+            string partNum = Console.ReadLine();
+
+            while (partNum != "9999") {
+
+                while (partNum.Length != 4) {
+                    Console.Write("Error: enter 4-digit number: ");
+                    partNum = Console.ReadLine();
+                }
+                if (partNum[3] >= 6 && partNum[3] <= 8) {
+                    oldModel += 1;
+                }
+                total += 1;
+                Console.Write("Enter a part number: ");
+                partNum = Console.ReadLine();
+            }
+            Console.WriteLine("Number of old models: " + oldModel);
+            Console.WriteLine("Total number of parts: " + total);
         }
     }
 
-    
 }
